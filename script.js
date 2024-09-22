@@ -1,7 +1,220 @@
 let speciesSelect = document.getElementById("species_select");
 let genderSelect = document.getElementById("gender_select");
+let result = document.getElementById("result");
 
 const NAMES = {
+    altmer: {
+        male: [
+          "Aicantar",
+          "Aranande",
+          "Calcelmo",
+          "Endarion",
+          "Falinesti",
+          "Haldir",
+          "Ithilion",
+          "Lilandril",
+          "Ondolemar",
+          "Taronil",
+          "Valenwer",
+          "Elendur",
+          "Thalinir",
+          "Caelondil",
+          "Melnaril"
+        ],
+        female: [
+          "Andilwen",
+          "Carandial",
+          "Elenwen",
+          "Faeniriel",
+          "Helionwen",
+          "Iridirya",
+          "Larethiel",
+          "Meralinde",
+          "Silasel",
+          "Tanariel",
+          "Varilwen",
+          "Calandil",
+          "Belandra",
+          "Finwen",
+          "Aldinil"
+        ],
+        lastname: [
+          "Arelion",
+          "Calionwe",
+          "Daraneth",
+          "Erandur",
+          "Faendil",
+          "Galandil",
+          "Halethwen",
+          "Ilithor",
+          "Larethor",
+          "Morwë",
+          "Nirenar",
+          "Pelanel",
+          "Silinor",
+          "Tarilwen",
+          "Vaeril"
+        ]
+    },
+    argonian: {
+        male: [
+          "Beem-Kur",
+          "Cheen-Ei",
+          "Deekus",
+          "Geel",
+          "Haj-Ei",
+          "Jaree-Ra",
+          "Keeril",
+          "Lifts-Her-Tail",
+          "Neetrenaza",
+          "Okan-Zeeus",
+          "Ra'Zeej",
+          "Scales-Like-Moon",
+          "Teekeeus",
+          "Walks-In-Shadows",
+          "Xuth"
+        ],
+        female: [
+          "Amusei",
+          "Chases-The-Wind",
+          "Deeja",
+          "Heem-Jas",
+          "Ifthee",
+          "Jeelus-Tei",
+          "Keema-Ra",
+          "Meshae-Ei",
+          "Seeks-The-Night",
+          "Shu-Zee",
+          "Talen-Jei",
+          "Ushnar-Zei",
+          "Walks-In-Water",
+          "Xel-Naga",
+          "Zeeva"
+        ],
+        lastname: [
+          "Ash-Tail",
+          "Bright-Scales",
+          "Dances-In-Rain",
+          "Follows-The-River",
+          "Gathers-Moss",
+          "Hides-His-Heart",
+          "Leaps-Over-Logs",
+          "Sharp-Tooth",
+          "Speaks-With-Many",
+          "Swims-In-Deep-Water",
+          "Thorn-Hist",
+          "Wanders-Far",
+          "Xeech-Teel",
+          "Yearns-For-Sky",
+          "Zith-Va"
+        ]
+    },
+    bosmer: {
+        male: [
+          "Alduin",
+          "Baenlin",
+          "Caelir",
+          "Deymar",
+          "Eldan",
+          "Faendal",
+          "Gwilin",
+          "Henantier",
+          "Joril",
+          "Lindir",
+          "Mellon",
+          "Niruin",
+          "Orinthal",
+          "Pinarus",
+          "Thalion"
+        ],
+        female: [
+          "Alawen",
+          "Brelas",
+          "Cindwen",
+          "Danelle",
+          "Elana",
+          "Falinesti",
+          "Glaris",
+          "Inwen",
+          "Lelanie",
+          "Mingwen",
+          "Narwen",
+          "Oleen",
+          "Teldrasil",
+          "Vanlanel",
+          "Zilrane"
+        ],
+        lastname: [
+          "Amberleaf",
+          "Blackthorn",
+          "Greenleaf",
+          "Hollowtree",
+          "Ironbark",
+          "Leafrunner",
+          "Moonshadow",
+          "Nightbreeze",
+          "Oakenshade",
+          "Rivershadow",
+          "Silverbough",
+          "Stormsinger",
+          "Treewalker",
+          "Woodstride",
+          "Wildsong"
+        ]
+    },
+    breton: {
+        male: [
+          "Adrien",
+          "Arthago",
+          "Caecilus",
+          "Darnand",
+          "Eldaire",
+          "Frandar",
+          "Glenroy",
+          "Hewnon",
+          "Jestin",
+          "Kiere",
+          "Lysandus",
+          "Medora",
+          "Oritus",
+          "Roggvir",
+          "Tiber"
+        ],
+        female: [
+          "Abelle",
+          "Brelayne",
+          "Calidia",
+          "Danys",
+          "Elayne",
+          "Frina",
+          "Gabriella",
+          "Hridi",
+          "Isobel",
+          "Julianna",
+          "Lielle",
+          "Margot",
+          "Odelia",
+          "Rosalie",
+          "Selene"
+        ],
+        lastname: [
+          "Aric",
+          "Betony",
+          "Carmine",
+          "Dralle",
+          "Evarian",
+          "Frondeur",
+          "Guimard",
+          "Haafingar",
+          "Lampronius",
+          "Montrose",
+          "Ormund",
+          "Rielle",
+          "Stentor",
+          "Valois",
+          "Whitemane"
+        ]
+    },
     dunmer: {
         male: [
             "Mondenc",
@@ -39,25 +252,289 @@ const NAMES = {
             "Neredran",
             "Drotis"
         ]
+    },
+    imperial: {
+        male: [
+          "Amantius",
+          "Caecilius",
+          "Decimus",
+          "Fabius",
+          "Gaius",
+          "Horatius",
+          "Julius",
+          "Lucius",
+          "Marius",
+          "Nero",
+          "Otho",
+          "Quintus",
+          "Sextus",
+          "Tiber",
+          "Varian"
+        ],
+        female: [
+          "Aemilia",
+          "Belinia",
+          "Claudia",
+          "Decima",
+          "Flavia",
+          "Gaia",
+          "Helvia",
+          "Jullia",
+          "Livia",
+          "Marinia",
+          "Nerina",
+          "Octavia",
+          "Sabina",
+          "Tullia",
+          "Vespasia"
+        ],
+        lastname: [
+          "Aquilius",
+          "Brutius",
+          "Caldonus",
+          "Decimus",
+          "Florus",
+          "Herennius",
+          "Ignatius",
+          "Loren",
+          "Maro",
+          "Pentius",
+          "Septim",
+          "Tullius",
+          "Varro",
+          "Vinicius",
+          "Volus"
+        ]
+    },
+    khajiit: {
+        male: [
+          "J'zargo",
+          "Kharjo",
+          "Ra'zirr",
+          "M'aiq",
+          "S'rathad",
+          "Dro'marash",
+          "J'datharr",
+          "Ma'randru-jo",
+          "S'rendar",
+          "Do'jhirr",
+          "Ka'ushur",
+          "Jo'ran",
+          "Ri'saad",
+          "Ra'jirr",
+          "Dar'jzo"
+        ],
+        female: [
+          "Khinari",
+          "Ra'zhinda",
+          "S'riva",
+          "Do'hana",
+          "M'aiqra",
+          "Shavari",
+          "Zaynabi",
+          "Shandra",
+          "Zi'jar",
+          "Mazha",
+          "Jo'rasha",
+          "Qizara",
+          "Shamira",
+          "Dro'ba",
+          "Inorra"
+        ],
+        lastname: [
+          "Jarr",
+          "Do'rhassa",
+          "Mahran",
+          "Vabaasuran",
+          "Suthay",
+          "Senche",
+          "Daro",
+          "Jahhin",
+          "Baandari",
+          "Renrijra",
+          "Torval",
+          "Rathar",
+          "Ahnassi",
+          "Dar",
+          "S'rathra"
+        ]
+    },
+    nord: {
+        male: [
+          "Balgruuf",
+          "Bjorn",
+          "Farkas",
+          "Hrongar",
+          "Jorleif",
+          "Kodlak",
+          "Ralof",
+          "Skjor",
+          "Torvar",
+          "Ulfric",
+          "Vilkas",
+          "Yngvar",
+          "Thorald",
+          "Wuunferth",
+          "Hakon"
+        ],
+        female: [
+          "Aela",
+          "Birna",
+          "Frea",
+          "Hulda",
+          "Idgrod",
+          "Jordis",
+          "Lydia",
+          "Mjoll",
+          "Ria",
+          "Svenja",
+          "Ulfhild",
+          "Ysgramor",
+          "Vigdis",
+          "Svana",
+          "Gerdur"
+        ],
+        lastname: [
+          "Battle-Born",
+          "Gray-Mane",
+          "Shatter-Shield",
+          "Stormcloak",
+          "Skywalker",
+          "Snow-Shod",
+          "Stonearm",
+          "Wolf-Hearth",
+          "Iron-Brow",
+          "Frost-Heart",
+          "Hearthfire",
+          "Whitemane",
+          "Ravencrag",
+          "Shieldbreaker",
+          "Winterblade"
+        ]
+    },
+    orsimer: {
+        male: [
+          "Bagrak",
+          "Bazul",
+          "Durzog",
+          "Ghorbash",
+          "Largash",
+          "Mughol",
+          "Nazgrol",
+          "Ogrul",
+          "Shagrol",
+          "Torug",
+          "Ugor",
+          "Yamarz",
+          "Zulbag",
+          "Burz",
+          "Gulz"
+        ],
+        female: [
+          "Atub",
+          "Bolar",
+          "Borzug",
+          "Dura",
+          "Gharol",
+          "Lob",
+          "Murog",
+          "Oghma",
+          "Shelur",
+          "Sharn",
+          "Snub",
+          "Urzoga",
+          "Zubesha",
+          "Mazoga",
+          "Urog"
+        ],
+        lastname: [
+          "Gro-Bagol",
+          "Gro-Dushnikh",
+          "Gro-Largash",
+          "Gro-Malog",
+          "Gro-Shul",
+          "Gra-Bagol",
+          "Gra-Malok",
+          "Gra-Orc",
+          "Gra-Ugron",
+          "Gro-Ushul",
+          "Gra-Bashnakh",
+          "Gro-Kharz",
+          "Gro-Zul",
+          "Gro-Gharz",
+          "Gro-Ghorz"
+        ]
+    },
+    redguard: {
+        male: [
+          "Abdallah",
+          "Hakeem",
+          "Jalil",
+          "Khalid",
+          "Malik",
+          "Rashid",
+          "Suleiman",
+          "Tariq",
+          "Yusuf",
+          "Zahir",
+          "Abe",
+          "Kadir",
+          "Jabari",
+          "Samir",
+          "Rami"
+        ],
+        female: [
+          "Aisha",
+          "Fatima",
+          "Jamila",
+          "Khadijah",
+          "Malika",
+          "Nadia",
+          "Rania",
+          "Samira",
+          "Zahra",
+          "Yasmina",
+          "Aminah",
+          "Layla",
+          "Soraya",
+          "Sabrina",
+          "Zaynab"
+        ],
+        lastname: [
+          "Alik'r",
+          "Hajji",
+          "Mabari",
+          "Naji",
+          "Qadir",
+          "Rashid",
+          "Sadiq",
+          "Tabari",
+          "Uthar",
+          "Zarahl",
+          "Anwar",
+          "Bakari",
+          "Faraji",
+          "Jafaar",
+          "Sarai"
+        ]
     }
 }
 
-function getName(characterInfo) {
-    if (characterInfo.gender == "" || characterInfo.species == "") {
+// Init instructions in result div
+result.innerText = "Select gender and species then hit \"Generate\" button !";
+
+function getName(species, gender) {
+    if (gender == "" || species == "") {
         alert("You must select a species and a gender");
         return;
     }
-    switch (characterInfo.species) {
-        case value:"dunmer"
-            console.log("dunmer");
-            break;
-        default:
-            console.log("John Doe");
-            break;
-    }
-    alert(`${characterInfo.gender} ${characterInfo.species}`);
+    let firstname = NAMES[species][gender][Math.floor(Math.random() * NAMES[species][gender].length)];
+    let lastname = NAMES[species].lastname[Math.floor(Math.random() * NAMES[species].lastname.length)];
+    result.innerText = `${firstname} ${lastname}`;
 }
 
 function generate() {
-    getName({species: speciesSelect.value, gender: genderSelect.value});
+    let species = speciesSelect.value;
+    let gender = genderSelect.value
+    getName(species, gender);
 }

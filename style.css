@@ -1,18 +1,28 @@
+:root {
+    /* colors */
+    --primary: rgb(50, 50, 50);
+    --secondary: orange;
+    --light_primary: rgb(100, 100, 100);
+
+    /* sizes */
+    --border_radius: 5px;
+}
+
 * {
     padding: 0;
     margin: 0;
 }
 
 header {
-    border-radius: 1em;
+    border-radius: var(--border_radius);
     margin: 1em;
     padding: 1em;
     text-align: center;
-    background-color: rgb(50, 50, 50);
+    background-color: var(--primary);
 }
 
 header > h1 {
-    color: orange;
+    color: var(--secondary);
 }
 
 main {
@@ -21,10 +31,27 @@ main {
 	flex-direction: column;
 }
 
+.result {
+    background-color: var(--light_primary);
+    min-height: 5em;
+    width: 75%;
+    margin: 2em;
+    border-radius: var(--border_radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: antiquewhite;
+}
+
 footer {
-    border-radius: 1em;
+    border-radius: var(--border_radius);
     margin: 1em;
     padding: 1em;
     text-align: center;
-    background-color: rgb(50, 50, 50);
+    background-color: var(--primary);
+    color: var(--secondary);
+    position: absolute;
+    width: 95%;
+    bottom: 1em;
 }
