@@ -1,8 +1,18 @@
 :root {
     /* colors */
-    --primary: rgb(50, 50, 50);
-    --secondary: orange;
-    --light_primary: rgb(100, 100, 100);
+    --primary: #007fb9;
+    --secondary: #BCE3C5;
+    --accent: #33CC33;
+    --light_primary: #03A9F4;
+    --background: #7a168e8c;
+    --text: #C9E4CA;
+    --button_hover: #F8E231;
+    --dark_purple: #200D3A;
+    --space_cadet: #292651;
+    --police_blue: #2E4770;
+    --cinnamon_satin: #CE5E82;
+    --tumbleweed: #ECA089;
+    --desert_sand: #ECC6A2;
 
     /* sizes */
     --border_radius: 5px;
@@ -11,14 +21,24 @@
 * {
     padding: 0;
     margin: 0;
+    font-weight: bold;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--desert_sand);
 }
 
 header {
+    min-height: 50px;
     border-radius: var(--border_radius);
     margin: 1em;
     padding: 1em;
     text-align: center;
-    background-color: var(--primary);
+    background-color: var(--space_cadet);
 }
 
 header > h1 {
@@ -29,10 +49,11 @@ main {
     align-items: center;
 	display: flex;
 	flex-direction: column;
+    flex: 1;
 }
 
 .result {
-    background-color: var(--light_primary);
+    background-color: var(--police_blue);
     min-height: 5em;
     width: 75%;
     margin: 2em;
@@ -44,14 +65,43 @@ main {
     color: antiquewhite;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1em;
+    color: var(--dark_purple)
+}
+
+select {
+    border-radius: 5px;
+    padding: .5em;
+}
+
+.confirm_button {
+    background-color: var(--accent);
+    color: green;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: .5em;
+    margin: .5em;
+}
+
+.confirm_button:hover {
+    background-color: var(--button_hover);
+    color: var(--background);
+    cursor: pointer;
+}
+
+.shade {
+    box-shadow: 5px 5px 5px;
+}
+
 footer {
-    border-radius: var(--border_radius);
-    margin: 1em;
     padding: 1em;
     text-align: center;
-    background-color: var(--primary);
+    background-color: var(--space_cadet);
     color: var(--secondary);
-    position: absolute;
-    width: 95%;
-    bottom: 1em;
 }
